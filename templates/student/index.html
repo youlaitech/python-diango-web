@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学生列表</title>
+</head>
+<body>
+<table border="1px" width="100%" style="border-collapse: collapse;">
+    <a href="../sims/add">添加学生</a>
+    <tr>
+        <th>编号</th>
+        <th>姓名</th>
+        <th>学号</th>
+        <th>操作</th>
+    </tr>
+    {% for student in students %}
+        <tr>
+            <td align="center">{{ forloop.counter }} </td>
+            <td align="center">{{ student.student_name }} </td>
+            <td align="center">{{ student.student_no }} </td>
+            <td align="center">
+                <a href="../sims/edit/?id={{ student.id }}">
+                    编辑
+                </a>
+                <a href="../sims/delete/?id={{ student.id }}">
+                    删除
+                </a>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
