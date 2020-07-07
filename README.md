@@ -1,5 +1,7 @@
 ## 前言
-本篇使用Python Web框架Django连接和操作MySQL数据库学生信息管理系统(SMS),主要包含对学生信息增删改查功能，旨在快速入门Python Web，少走弯路。效果演示在项目实战最后一节，文章结尾有整个项目的源码地址。
+本篇使用Python Web框架Django连接和操作MySQL数据库学生信息管理系统(SMS),主要包含对学生信息增删改查功能，旨在快速入门Python Web，少走弯路。话不多说先看下效果：
+
+![](https://i.loli.net/2020/05/10/kWLTu6OIgmsV2FP.gif)
 
 ## 开发环境
 - 开发工具：Pycharm 2020.1
@@ -334,16 +336,8 @@ python manage.py runserver
 
 服务启动后,打开浏览器输入[http://127.0.0.1:8000/sims/](http://127.0.0.1:8000/sims/)即可进入学生信息管理列表页
 
-### 10.功能演示
-
-最后最重要的事情，看效果。我这里简单演示下，话不多说，看动态图
-
-![](https://i.loli.net/2020/05/10/kWLTu6OIgmsV2FP.gif)
 
 ## 结语
 
 至此，基于Python+Django+MySQL环境搭建一个拥有增删改查功能的Python Web就完成了。希望能够真正帮到大家快速入门Python Web开发。如果在搭建过程中您有遇到什么问题，欢迎在下方留言，看到我会立即回复的！可以的话给个关注哦，谢谢您！
 
-## 附录
-
-最后附上项目整个源码的github仓库地址 [https://github.com/hxrui/python-diango-web.git](https://github.com/hxrui/python-diango-web.git)，欢迎star交流学习。
