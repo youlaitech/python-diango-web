@@ -5,6 +5,12 @@
     <title>学生列表</title>
 </head>
 <body>
+
+<form action="../sims" style="margin: 10px 0">
+    <input name="student_name" placeholder="请输入姓名" value="{{ student_name }}" style="margin-right: 10px"/>
+    <input name="student_no" placeholder="请输入学号" value="{{ student_no }}" style="margin-right: 10px"/>
+    <button type="submit">查询</button>
+</form>
 <table border="1px" width="100%" style="border-collapse: collapse;">
     <a href="../sims/add">添加学生</a>
     <tr>

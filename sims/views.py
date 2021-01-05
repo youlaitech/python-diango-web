@@ -5,11 +5,23 @@ from django.shortcuts import render, redirect
 # Create your views here.
 # 学生信息列表处理函数
 def index(request):
+    student_no = request.GET.get('student_no', '')
+    student_name = request.GET.get('student_name', '')
+
+    sql = "SELECT id,student_no,student_name FROM sims_student WHERE 1=1 "
+    if student_no.strip() != '':
+        sql = sql + " and student_no = '" + student_no+"'"
+    if student_name.strip() != '':
+        sql = sql + " and student_name = '" + student_name+"'"
+
+    print(sql)
     conn = MySQLdb.connect(host="localhost", user="root", passwd="123456", db="sms", charset='utf8')
     with conn.cursor(cursorclass=MySQLdb.cursors.DictCursor) as cursor:
-        cursor.execute("SELECT id,student_no,student_name FROM sims_student")
+        cursor.execute(sql)
         students = cursor.fetchall()
-    return render(request, 'student/index.html', {'students': students})
+    return render(request, 'student/index.html', {'students': students,
+                                                  'student_name':student_name,'student_no':student_no})
+
 
 # 学生信息新增处理函数
 def add(request):
@@ -24,6 +36,7 @@ def add(request):
                            "values (%s,%s)", [student_no, student_name])
             conn.commit()
         return redirect('../')
+
 
 # 学生信息修改处理函数
 def edit(request):
@@ -45,6 +58,7 @@ def edit(request):
             conn.commit()
         return redirect('../')
 
+
 # 学生信息删除处理函数
 def delete(request):
     id = request.GET.get("id")
@@ -52,4 +66,4 @@ def delete(request):
     with conn.cursor(cursorclass=MySQLdb.cursors.DictCursor) as cursor:
         cursor.execute("DELETE FROM sims_student WHERE id =%s", [id])
         conn.commit()
-    return  redirect('../')
+    return redirect('../')
